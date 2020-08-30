@@ -7,11 +7,14 @@ import Favs from '../screens/Favs';
 
 const Tabs = createBottomTabNavigator();
 
-export default () => (
-  <Tabs.Navigator>
-    <Tabs.Screen name="Movies" component={Movies} />
-    <Tabs.Screen name="Tv" component={Tv} />
-    <Tabs.Screen name="Search" component={Search} />
-    <Tabs.Screen name="Favs" component={Favs} />
-  </Tabs.Navigator>
-);
+export default (props) => {
+  props.navigation.setOptions({title: 'hihi'});
+  return (
+    <Tabs.Navigator>
+      <Tabs.Screen name="Movies" component={Movies} />
+      <Tabs.Screen name="Tv" component={Tv} />
+      <Tabs.Screen name="Search" component={Search} />
+      <Tabs.Screen name="Favs" component={Favs} />
+    </Tabs.Navigator>
+  );
+};
