@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useLayoutEffect} from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Movies from '../screens/Movies';
 import Tv from '../screens/Tv';
@@ -7,14 +7,17 @@ import Favs from '../screens/Favs';
 
 const Tabs = createBottomTabNavigator();
 
-export default (props) => {
-  props.navigation.setOptions({title: 'hihi'});
+export default ({navigation, route}) => {
+  useLayoutEffect(() => {
+    navigation.setOptions({title: route?.state?.routeNames[route.state.index] || 'Movies'});
+  }, [route]);
+
   return (
     <Tabs.Navigator>
       <Tabs.Screen name="Movies" component={Movies} />
       <Tabs.Screen name="Tv" component={Tv} />
       <Tabs.Screen name="Search" component={Search} />
-      <Tabs.Screen name="Favs" component={Favs} />
+      <Tabs.Screen name="Favourites" component={Favs} />
     </Tabs.Navigator>
   );
 };
