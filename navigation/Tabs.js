@@ -7,9 +7,13 @@ import Favs from '../screens/Favs';
 
 const Tabs = createBottomTabNavigator();
 
+const getHeaderName = (route) => route?.state?.routeNames[route.state.index] || 'Movies';
+
 export default ({navigation, route}) => {
   useLayoutEffect(() => {
-    navigation.setOptions({title: route?.state?.routeNames[route.state.index] || 'Movies'});
+    navigation.setOptions({
+      title: getHeaderName(route),
+    });
   }, [route]);
 
   return (
