@@ -26,7 +26,7 @@ export default ({navigation, route}) => {
           let iconName = Platform.OS === 'ios' ? 'ios-' : 'md-';
           if (route.name === 'Movies') {
             iconName += 'film';
-          } else if (route.name === 'TV') {
+          } else if (route.name === 'Tv') {
             iconName += 'tv';
           } else if (route.name === 'Search') {
             iconName += 'search';
