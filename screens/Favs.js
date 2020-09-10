@@ -1,8 +1,16 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {View, Text} from 'react-native';
 
-export default () => (
-  <View>
-    <Text>Favs</Text>
-  </View>
-);
+export default () => {
+  const getData = async () => {};
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  return (
+    <View>
+      <Text>Favs</Text>
+    </View>
+  );
+};
