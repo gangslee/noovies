@@ -4,7 +4,6 @@ import Swiper from 'react-native-web-swiper';
 import {ActivityIndicator, Dimensions, View} from 'react-native';
 import Slide from '../../components/Movies/Slide';
 
-
 const {width: WIDTH, height: HEIGHT} = Dimensions.get('screen');
 
 const Container = styled.View`
@@ -16,7 +15,7 @@ const Container = styled.View`
 const SliderContainer = styled.View`
   width: ${WIDTH}px;
   height: ${HEIGHT / 4}px;
-`
+`;
 
 export default ({loading, nowPlaying}) => (
   <Container>
@@ -33,6 +32,7 @@ export default ({loading, nowPlaying}) => (
               title={movie.original_title}
               overview={movie.overview}
               votes={movie.vote_average}
+              poster={movie.poster_path}
             />
           ))}
         </Swiper>
