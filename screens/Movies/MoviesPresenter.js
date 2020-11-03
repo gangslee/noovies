@@ -32,7 +32,7 @@ export default ({ loading, nowPlaying, popular }) => (
                 key={movie.id}
                 id={movie.id}
                 backgroundImage={movie.backdrop_path}
-                title={movie.original_title}
+                title={movie.title}
                 overview={movie.overview}
                 votes={movie.vote_average}
                 poster={movie.poster_path}
@@ -42,12 +42,17 @@ export default ({ loading, nowPlaying, popular }) => (
         </SliderContainer>
         <Container>
           <Title title="Popular Movies" />
-          <ScrollView horizontal>
+          <ScrollView
+            style={{ marginTop: 20 }}
+            contentContainerStyle={{ paddingLeft: 30 }}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+          >
             {popular.map((movie) => (
               <Vertical
                 key={movie.id}
                 poster={movie.poster_path}
-                title={movie.original_title}
+                title={movie.title}
                 votes={movie.vote_average}
               />
             ))}
