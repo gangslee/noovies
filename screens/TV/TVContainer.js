@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from 'react';
-import {View, Text} from 'react-native';
-import {tvApi} from '../api';
+import React, { useEffect, useState } from 'react';
+import { tvApi } from '../../api';
+import TVPresenter from './TVPresenter';
 
 export default () => {
   const [shows, setShows] = useState({
@@ -12,6 +12,7 @@ export default () => {
     topRatedError: null,
     popular: [],
     popularError: null,
+    loading: true,
   });
 
   const getData = async () => {
@@ -28,15 +29,12 @@ export default () => {
       topRatedError,
       popular,
       popularError,
+      loading: false,
     });
   };
 
   useEffect(() => {
     getData();
   }, []);
-  return (
-    <View>
-      <Text>{shows.popular?.length}</Text>
-    </View>
-  );
+  return <TVPresenter {...shows} />;
 };
