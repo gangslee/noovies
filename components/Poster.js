@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components/native';
-import { apiImage } from '../api';
+import React from "react";
+import PropTypes from "prop-types";
+import styled from "styled-components/native";
+import { apiImage } from "../api";
 
 const Image = styled.Image`
   width: 100px;
@@ -12,7 +12,7 @@ const Image = styled.Image`
 const Poster = ({ url }) => <Image source={{ uri: apiImage(url) }} />;
 
 Poster.propTypes = {
-  url: PropTypes.string.isRequired,
+  url: PropTypes.string,
 };
 
 export default Poster;

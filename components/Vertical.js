@@ -31,7 +31,7 @@ Vertical.propTypes = {
   id: PropTypes.number.isRequired,
   poster: PropTypes.string,
   title: PropTypes.string.isRequired,
-  votes: PropTypes.number.isRequired,
+  votes: PropTypes.number,
 };
 
 export default Vertical;
