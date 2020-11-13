@@ -1,7 +1,6 @@
-import React, {useEffect, useState} from 'react';
-import {View, Text, Button} from 'react-native';
-import {movieApi} from '../../api';
-import MoviesPresenter from './MoviesPresenter';
+import React, { useEffect, useState } from "react";
+import { movieApi } from "../../api";
+import MoviesPresenter from "./MoviesPresenter";
 
 export default () => {
   const [movies, setMovies] = useState({
@@ -33,5 +32,5 @@ export default () => {
     getData();
   }, []);
 
-  return <MoviesPresenter {...movies} />;
+  return <MoviesPresenter refreshFn={getData} {...movies} />;
 };

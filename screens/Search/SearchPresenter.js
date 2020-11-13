@@ -11,6 +11,8 @@ const Container = styled.ScrollView`
 
 export default ({ movies, shows, keyword, onSubmit, onChange }) => (
   <ScrollContainer
+    refreshFn={onSubmit}
+    loading={false}
     contentContainerStyle={{
       paddingTop: 10,
     }}
