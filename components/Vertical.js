@@ -1,10 +1,10 @@
-import React from 'react';
-import styled from 'styled-components/native';
-import PropTypes from 'prop-types';
-import Votes from './Votes';
-import Poster from './Poster';
-import { TouchableOpacity } from 'react-native';
-import { trimText } from '../utils';
+import React from "react";
+import styled from "styled-components/native";
+import PropTypes from "prop-types";
+import Votes from "./Votes";
+import Poster from "./Poster";
+import { TouchableOpacity } from "react-native";
+import { trimText } from "../utils";
 
 const Container = styled.View`
   align-items: center;
@@ -22,14 +22,14 @@ const Vertical = ({ id, poster, title, votes }) => (
     <Container>
       <Poster url={poster} />
       <Title>{trimText(title, 10)}</Title>
-      <Votes votes={votes} />
+      {votes > 0 && <Votes votes={votes} />}
     </Container>
   </TouchableOpacity>
 );
 
 Vertical.propTypes = {
   id: PropTypes.number.isRequired,
-  poster: PropTypes.string.isRequired,
+  poster: PropTypes.string,
   title: PropTypes.string.isRequired,
   votes: PropTypes.number.isRequired,
 };
