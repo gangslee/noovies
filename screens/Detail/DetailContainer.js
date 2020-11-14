@@ -10,8 +10,6 @@ export default ({
     params: { id, title, backgroundImage, poster, votes, overview, isTv },
   },
 }) => {
-  const [loading, setLoading] = useState(true);
-
   const [detail, setDetail] = useState({
     loading: true,
     result: {
@@ -39,7 +37,6 @@ export default ({
         votes: getDetail.vote_average,
       },
     });
-    setLoading(false);
   };
 
   useEffect(() => {

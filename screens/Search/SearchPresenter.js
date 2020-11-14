@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components/native";
-import HorizontalSlider from "../../components/HorizontalSlider";
-import ScrollContainer from "../../components/ScrollContainer";
-import Input from "../../components/Search/Input";
-import Vertical from "../../components/Vertical";
+import React from 'react';
+import styled from 'styled-components/native';
+import HorizontalSlider from '../../components/HorizontalSlider';
+import ScrollContainer from '../../components/ScrollContainer';
+import Input from '../../components/Search/Input';
+import Vertical from '../../components/Vertical';
 
 const Container = styled.ScrollView`
   background-color: black;
@@ -17,12 +17,7 @@ export default ({ movies, shows, keyword, onSubmit, onChange }) => (
       paddingTop: 10,
     }}
   >
-    <Input
-      placeholder="Write a keyword"
-      value={keyword}
-      onChange={onChange}
-      onSubmit={onSubmit}
-    />
+    <Input placeholder="Write a keyword" value={keyword} onChange={onChange} onSubmit={onSubmit} />
     {movies.length !== 0 && (
       <HorizontalSlider title="Movie Results">
         {movies.map((movie) => (
@@ -40,6 +35,7 @@ export default ({ movies, shows, keyword, onSubmit, onChange }) => (
       <HorizontalSlider title="TV Results">
         {shows.map((show) => (
           <Vertical
+            isTv={true}
             key={show.id}
             id={show.id}
             votes={show.vote_average}
