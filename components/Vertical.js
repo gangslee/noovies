@@ -1,11 +1,11 @@
-import React from "react";
-import styled from "styled-components/native";
-import PropTypes from "prop-types";
-import { useNavigation } from "@react-navigation/native";
-import Votes from "./Votes";
-import Poster from "./Poster";
-import { TouchableOpacity } from "react-native";
-import { trimText } from "../utils";
+import React from 'react';
+import styled from 'styled-components/native';
+import PropTypes from 'prop-types';
+import { useNavigation } from '@react-navigation/native';
+import Votes from './Votes';
+import Poster from './Poster';
+import { TouchableOpacity } from 'react-native';
+import { trimText } from '../utils';
 
 const Container = styled.View`
   align-items: center;
@@ -18,10 +18,11 @@ const Title = styled.Text`
   margin: 10px 0px 5px 0px;
 `;
 
-const Vertical = ({ id, poster, title, votes }) => {
+const Vertical = ({ id, poster, title, votes, isTv = false }) => {
   const navigation = useNavigation();
   const goToDetail = () => {
-    navigation.navigate("Detail", {
+    navigation.navigate('Detail', {
+      isTv,
       id,
       title,
       votes,
