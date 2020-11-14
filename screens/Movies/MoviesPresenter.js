@@ -1,16 +1,15 @@
-import React from "react";
-import styled from "styled-components/native";
-import Swiper from "react-native-web-swiper";
-import { ActivityIndicator, Dimensions, ScrollView } from "react-native";
-import Slide from "../../components/Movies/Slide";
-import Title from "../../components/Title";
-import Vertical from "../../components/Vertical";
-import Horizontal from "../../components/Horizontal";
-import ScrollContainer from "../../components/ScrollContainer";
-import HorizontalSlider from "../../components/HorizontalSlider";
-import List from "../../components/List";
+import React from 'react';
+import styled from 'styled-components/native';
+import Swiper from 'react-native-web-swiper';
+import { Dimensions } from 'react-native';
+import Slide from '../../components/Movies/Slide';
+import Vertical from '../../components/Vertical';
+import Horizontal from '../../components/Horizontal';
+import ScrollContainer from '../../components/ScrollContainer';
+import HorizontalSlider from '../../components/HorizontalSlider';
+import List from '../../components/List';
 
-const { width: WIDTH, height: HEIGHT } = Dimensions.get("window");
+const { width: WIDTH, height: HEIGHT } = Dimensions.get('window');
 
 const SliderContainer = styled.View`
   width: 100%;

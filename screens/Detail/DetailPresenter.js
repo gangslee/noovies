@@ -1,13 +1,13 @@
-import React from "react";
-import { Dimensions } from "react-native";
-import styled from "styled-components/native";
-import { apiImage } from "../api";
-import Poster from "../components/Poster";
-import ScrollContainer from "../components/ScrollContainer";
-import Votes from "../components/Votes";
+import React from 'react';
+import { Dimensions } from 'react-native';
+import styled from 'styled-components/native';
+import { apiImage } from '../../api';
+import Poster from '../../components/Poster';
+import ScrollContainer from '../../components/ScrollContainer';
+import Votes from '../../components/Votes';
 
 const Header = styled.View`
-  height: ${Dimensions.get("window").height / 3}px;
+  height: ${Dimensions.get('window').height / 3}px;
   align-items: center;
   justify-content: flex-end;
 `;
@@ -55,18 +55,12 @@ const DataValue = styled.Text`
   font-weight: 500;
 `;
 
-export default ({
-  navigation,
-  route: {
-    params: { id, title, backgroundImage, poster, votes, overview },
-  },
-}) => {
-  navigation.setOptions({ title });
+export default ({ backgroundImage, title, votes, overview, poster }) => {
   return (
     <ScrollContainer loading={false}>
       <>
         <Header>
-          <BG source={{ uri: apiImage(backgroundImage, "-") }} />
+          <BG source={{ uri: apiImage(backgroundImage, '-') }} />
           <Container>
             <Poster url={poster} />
             <Info>
