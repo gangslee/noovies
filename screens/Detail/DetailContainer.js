@@ -20,6 +20,9 @@ export default ({
       poster,
       overview,
       votes,
+      videos: {
+        results: [],
+      },
     },
   });
 

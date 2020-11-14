@@ -130,11 +130,27 @@ export default ({ openBrwoser, loading, result }) => {
             </>
           )}
           {result.imdb_id && (
-            <Link
-              onPress={() => openBrwoser(`https://www.imdb.com/title/${result.imdb_id}`)}
-              text="IMDB Page"
-              icon="imdb"
-            />
+            <>
+              <DataName>Links</DataName>
+              <Link
+                onPress={() => openBrwoser(`https://www.imdb.com/title/${result.imdb_id}`)}
+                text="IMDB Page"
+                icon="imdb"
+              />
+            </>
+          )}
+          {result.videos.results?.length > 0 && (
+            <>
+              <DataName>Videos</DataName>
+              {result.videos.results.map((video) => (
+                <Link
+                  text={video.name}
+                  key={video.id}
+                  icon="youtube-play"
+                  onPress={() => openBrwoser(`https://www.youtube.com/watch?v=${video.key}`)}
+                />
+              ))}
+            </>
           )}
         </Data>
       </>
