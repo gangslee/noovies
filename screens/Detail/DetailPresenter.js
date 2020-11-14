@@ -1,7 +1,9 @@
 import React from 'react';
 import { ActivityIndicator, Dimensions } from 'react-native';
+
 import styled from 'styled-components/native';
 import { apiImage } from '../../api';
+import Link from '../../components/Detail/Link';
 import Poster from '../../components/Poster';
 import ScrollContainer from '../../components/ScrollContainer';
 import Votes from '../../components/Votes';
@@ -57,7 +59,7 @@ const DataValue = styled.Text`
   font-weight: 500;
 `;
 
-export default ({ loading, result }) => {
+export default ({ openBrwoser, loading, result }) => {
   return (
     <ScrollContainer loading={false} contentContainerStyle={{ paddingBottom: 60 }}>
       <>
@@ -126,6 +128,13 @@ export default ({ loading, result }) => {
                 {result.number_of_seasons} / {result.number_of_episodes}
               </DataValue>
             </>
+          )}
+          {result.imdb_id && (
+            <Link
+              onPress={() => openBrwoser(`https://www.imdb.com/title/${result.imdb_id}`)}
+              text="IMDB Page"
+              icon="imdb"
+            />
           )}
         </Data>
       </>
