@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components/native';
 import { Dimensions, PanResponder, Animated } from 'react-native';
 import { apiImage } from '../../api';
@@ -25,6 +25,8 @@ const Poster = styled.Image`
 `;
 
 export default ({ results }) => {
+  const [topIndex, setTopIndex] = useState(0);
+
   const position = new Animated.ValueXY();
 
   const panResponder = PanResponder.create({
@@ -32,22 +34,47 @@ export default ({ results }) => {
     onPanResponderMove: (evt, { dx, dy }) => {
       position.setValue({ x: dx, y: dy });
     },
+    onPanResponderRelease: () => {
+      Animated.spring(position, {
+        toValue: {
+          x: 0,
+          y: 0,
+        },
+        useNativeDriver: true,
+      }).start();
+    },
   });
 
   return (
     <Container>
-      {results.reverse().map((result) => (
-        <Animated.View
-          style={{
-            ...styles,
-            transform: [...position.getTranslateTransform()],
-          }}
-          key={result.id}
-          {...panResponder.panHandlers}
-        >
-          <Poster source={{ uri: apiImage(result.poster_path) }} />
-        </Animated.View>
-      ))}
+      {results.reverse().map((result, index) => {
+        if (index === topIndex) {
+          return (
+            <Animated.View
+              style={{
+                ...styles,
+                zIndex: 1,
+                transform: [...position.getTranslateTransform()],
+              }}
+              key={result.id}
+              {...panResponder.panHandlers}
+            >
+              <Poster source={{ uri: apiImage(result.poster_path) }} />
+            </Animated.View>
+          );
+        }
+        return (
+          <Animated.View
+            style={{
+              ...styles,
+            }}
+            key={result.id}
+            {...panResponder.panHandlers}
+          >
+            <Poster source={{ uri: apiImage(result.poster_path) }} />
+          </Animated.View>
+        );
+      })}
     </Container>
   );
 };
