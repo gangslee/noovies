@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import { View, Text, Dimensions } from 'react-native';
+import { Dimensions, PanResponder } from 'react-native';
 import { apiImage } from '../../api';
 
 const { width: WIDTH, height: HEIHGT } = Dimensions.get('window');
@@ -25,10 +25,16 @@ const Poster = styled.Image`
 `;
 
 export default ({ results }) => {
+  const panResponder = PanResponder.create({
+    onStartShouldSetPanResponder: () => true,
+    onPanResponderMove: (evt, gesture) => {
+      console.log(evt);
+    },
+  });
   return (
     <Container>
       {results.reverse().map((result) => (
-        <Card key={result.id}>
+        <Card key={result.id} {...panResponder.panHandlers}>
           <Poster source={{ uri: apiImage(result.poster_path) }} />
         </Card>
       ))}
