@@ -1,14 +1,16 @@
 {
   "expo": {
-    "name": "noovies",
+    "name": "Noovies",
     "slug": "noovies",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
+    "primaryColor":"#000000",
+    "backgroundColor":"#000000",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#000000"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -16,11 +18,25 @@
     "assetBundlePatterns": [
       "**/*"
     ],
+    "android": {
+      "package": "com.gangslee.noovies",
+      "versionCode": 1
+    },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.gangslee.noovies",
+      "buildNumber": "1.0.0"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "androidStatusBar":{
+      "barStyle":"dark-content",
+      "backgroundColor":"#000000"
+    },
+    "androidNavigationBar":{
+      "barStyle":"dark-content",
+      "backgroundColor":"#000000"
     }
   }
 }
