@@ -45,16 +45,22 @@ export default ({ results }) => {
     },
   });
 
+  const rotationValues = position.x.interpolate({
+    inputRange: [-100, 0, 100],
+    outputRange: ['-5deg', '0deg', '5deg'],
+    extrapolate: 'clamp',
+  });
+
   return (
     <Container>
-      {results.reverse().map((result, index) => {
+      {results.map((result, index) => {
         if (index === topIndex) {
           return (
             <Animated.View
               style={{
                 ...styles,
                 zIndex: 1,
-                transform: [...position.getTranslateTransform()],
+                transform: [{ rotate: rotationValues }, ...position.getTranslateTransform()],
               }}
               key={result.id}
               {...panResponder.panHandlers}
@@ -67,6 +73,7 @@ export default ({ results }) => {
           <Animated.View
             style={{
               ...styles,
+              zIndex: -index,
             }}
             key={result.id}
             {...panResponder.panHandlers}
