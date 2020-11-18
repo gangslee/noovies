@@ -12,7 +12,7 @@ const Container = styled.View`
 `;
 
 const styles = {
-  top: 80,
+  top: 70,
   height: HEIHGT / 1.5,
   width: '90%',
   position: 'absolute',
@@ -27,6 +27,8 @@ const Poster = styled.Image`
 export default ({ results }) => {
   const [topIndex, setTopIndex] = useState(0);
 
+  const nextCard = () => setTopIndex((currentValue) => currentValue + 1);
+
   const position = new Animated.ValueXY();
 
   const panResponder = PanResponder.create({
@@ -34,14 +36,32 @@ export default ({ results }) => {
     onPanResponderMove: (evt, { dx, dy }) => {
       position.setValue({ x: dx, y: dy });
     },
-    onPanResponderRelease: () => {
-      Animated.spring(position, {
-        toValue: {
-          x: 0,
-          y: 0,
-        },
-        useNativeDriver: true,
-      }).start();
+    onPanResponderRelease: (evt, { dx, dy }) => {
+      if (dx >= 230) {
+        Animated.spring(position, {
+          toValue: {
+            x: WIDTH + 100,
+            y: dy,
+          },
+          useNativeDriver: true,
+        }).start(nextCard);
+      } else if (dx <= -230) {
+        Animated.spring(position, {
+          toValue: {
+            x: -WIDTH - 100,
+            y: dy,
+          },
+          useNativeDriver: true,
+        }).start(nextCard);
+      } else {
+        Animated.spring(position, {
+          toValue: {
+            x: 0,
+            y: 0,
+          },
+          useNativeDriver: true,
+        }).start();
+      }
     },
   });
 
@@ -66,6 +86,9 @@ export default ({ results }) => {
   return (
     <Container>
       {results.map((result, index) => {
+        if (index < topIndex) {
+          return null;
+        }
         if (index === topIndex) {
           return (
             <Animated.View
