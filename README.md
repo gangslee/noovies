@@ -19,9 +19,9 @@ Learning React Native with Expo building a Movie & TV Shows Discovery App from N
 
 <div style="display:flex;">
 
-<img src="https://user-images.githubusercontent.com/37660333/103150483-0518d480-47b8-11eb-8ee2-b28b17876bdf.png" width="200px" height="400px" style="margin-right:100px">
+<img src="https://user-images.githubusercontent.com/37660333/103150483-0518d480-47b8-11eb-8ee2-b28b17876bdf.png" width="200px" height="400px" style="margin-right:60px">
 
-<img src="https://user-images.githubusercontent.com/37660333/103150486-0813c500-47b8-11eb-8a43-a2ce902821b3.png" width="200px" height="400px" style="margin-right:100px">
+<img src="https://user-images.githubusercontent.com/37660333/103150486-0813c500-47b8-11eb-8a43-a2ce902821b3.png" width="200px" height="400px" style="margin-right:60px">
 
 <img src="https://user-images.githubusercontent.com/37660333/103150670-9ccaf280-47b9-11eb-8154-bb078f9fe3a5.png" width="200px" height="400px">
 
@@ -32,11 +32,11 @@ Learning React Native with Expo building a Movie & TV Shows Discovery App from N
 
 <div style="display:flex;">
   
-<img src="https://user-images.githubusercontent.com/37660333/103150484-05b16b00-47b8-11eb-820a-e1597945de7f.gif" width="200px" height="400px" style="margin-right:100px"/>
+<img src="https://user-images.githubusercontent.com/37660333/103150484-05b16b00-47b8-11eb-820a-e1597945de7f.gif" width="200px" height="400px" style="margin-right:60px"/>
 
-<img src="https://user-images.githubusercontent.com/37660333/103150481-034f1100-47b8-11eb-83f3-7f115d647e1e.gif" width="200px" height="400px" style="margin-right:100px"/>
+<img src="https://user-images.githubusercontent.com/37660333/103150481-034f1100-47b8-11eb-83f3-7f115d647e1e.gif" width="200px" height="400px" style="margin-right:60px"/>
 
-<img src="https://user-images.githubusercontent.com/37660333/103150995-30ea8900-47bd-11eb-8d68-56b203746ab8.png" width="200px" height="400px" style="margin-right:100px"/>
+<img src="https://user-images.githubusercontent.com/37660333/103150995-30ea8900-47bd-11eb-8d68-56b203746ab8.png" width="200px" height="400px" style="margin-right:60px"/>
 
 </div>
 </br>
